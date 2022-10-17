@@ -1,0 +1,1868 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Traduccion de LSM a texto</title>
+
+		
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+    	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Offside&family=Open+Sans+Condensed:wght@300;700&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+		<link rel="stylesheet" href="css/presentacion.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<!--PORTADA-->
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<br>
+					<h3>Traducción de Lengua de Señas Mexicana a texto mediante aprendizaje profundo</h3>
+					<div class="infor">
+						<div class="comite compad">Tesis para obtener el grado de</div>
+						<div class="comite">Maestra en Ciencias</div>
+						<div class="comite compad director">Defiende:</div>
+						<div>Michelle Sainos Vizuett</div>
+						<div>sainos@cicese.edu.mx</div>
+						<div class="names director">Comité:</div>
+						<div>Dr. Irvin Hussein López Nava (director)</div>
+						<div>Dr. Jesús Favela Vara</div>
+						<div>Dra. Carolina Álvarez Delgado</div>
+						<div>Dr. Edgar Leonel Chávez González</div>
+						<div class="date">20 de Octubre, 2022</div>
+					</div>
+				</section>
+
+
+				<!--Motivación-->
+				<section data-transition="slide">
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					
+					<div class="mot">
+						<div class="mot_tit">
+						<h6>Motivación</h6>
+						</div>
+						<div class="mot_text">
+							De acuerdo con la Organización Mundial de la Salud (OMS) el 5% de 
+							la población mundial sufre de discapacidad auditiva. 
+							<br>En México existen 4.2 millones 
+							de personas con discapacidad auditiva. 
+							<br>Existen más de <b>200</b> Lenguas de Señas en el mundo.
+						</div>
+						<div class="mot_im1 motim animate__zoomIn">
+							<img data-src="img\OMS.png" alt="Up arrow" >
+							<div class="glosas">Tomada del <it>World report on hearing: executive summary of WHO</it> (2021).</div>
+						</div>
+						
+					</div>
+
+					<div class="footer numero">
+						1
+					</div>
+				</section>
+
+
+
+				<!--MOTIVACION 2-->
+				<section data-transition="slide">
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="contenedor_1">
+						<div class="cont1_tit"><h6>Motivación</h6></div>
+						<div class="cont1_info mot3">
+							Las Lenguas de Señas son usadas por las comunidades sordas del mundo para comunicarse.
+							En ellas, la persona sorda gesticula usando <b>manos, brazos y expresiones
+							faciales</b>. La Lengua de Señas oficial en México es la Lengua de Señas Mexicana (LSM).
+							<div class="video1 animate__zoomIn">
+								<video controls loop>
+									<source data-src="img\VIDEOS\SLIDE_1.mp4" type="video/mp4" loop="loop"/>
+								</video>
+								<div class="glosas">Se me dificulta respirar</div>
+								<div class="glosas"><b>YO RESPIRACIÓN DIFÍCIL</b></div>
+							</div>
+						</div>
+					</div>
+					<div class="footer numero">
+						2
+					</div>
+				</section>
+
+
+
+				<!--Introducción problema-->
+				<section data-transition="slide">
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="contenedor_1">
+						<div class="cont1_tit"><h6>Direcciones de traducción</h6></div>
+						<div class="cont1_info mot2">
+							El problema de comunicación entre los oyentes y la comunidad sorda es bidireccional. 
+							<div class="imgtrad animate__zoomIn">
+								<img data-src="img\direcciones_traduccion.png" alt="Up arrow">
+							</div>
+						</div>
+					</div>
+					<div class="footer numero">
+						3
+					</div>
+				</section>
+
+
+
+
+
+
+
+
+
+				<!--LSM PARTICULARIDADES 1-->
+				<section data-transition="slide">
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					
+					<div class="cont2_retos">
+						<div class="cont2_tit">
+						<h6>Retos en el reconocimiento de señas </h6>
+						</div>
+						<div class="cont2_text setup_text">
+							<ul class="cont22_text">
+								<li class="animate__fadeInLeft">La mayor parte de las señas en LS son 
+									<b>dinámicas</b>.</li>
+									<li class="animate__fadeInLeft">Estas señas por lo regular involucran 
+										el movimiento de varias extremidades.</li>
+									<li class="animate__fadeInLeft">No existen diccionarios digitales disponibles para todas las 
+										LS en el mundo.</li>
+									<li class="animate__fadeInLeft">La diversidad de los intérpretes, el tamaño de las manos,
+										color de piel, composición corporal e incluso estilo para realizar la seña.</li>
+									</ul>
+							<div class="cont22_text animate__fadeIn">
+								Estos problemas se pueden resolver diseñando sistemas de reconocimiento
+							que sean independientes de estas variable.
+							</div>
+						</div>
+						<div class="cont2_im1 imagen2 animate__zoomIn">
+							<video controls loop>
+								<source data-src="img\VIDEOS\LSM_11.mp4" type="video/mp4" loop="loop"/>
+							</video>
+							<div>
+								Seña: LSM
+							</div>
+						
+						</div>
+						<div class="cont2_im2 imagen2 animate__zoomIn">
+							<video controls loop>
+								<source data-src="img\VIDEOS\LSM_0.mp4" type="video/mp4" loop="loop"/>
+							</video>
+							<div>
+								Señas realizadas por diferentes intérpretes.
+							</div>
+						</div>
+					</div>
+
+					<div class="footer numero">
+						4
+					</div>
+				</section>
+
+
+
+
+												<!--OBJETIVOS-->
+				<section data-transition="slide">
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+
+					<div class="cont3">
+						<div class="cont3_tit">
+							<h6>Propuesta de investigación</h6>
+						</div>
+						<div class="cont3_info">
+							<div class="obj">
+								En este trabajo se busca desarrollar modelos computacionales capaces de clasificar 
+							(en formato de glosa) señas dinámicas de la LSM usando videos. Además se 
+							realizará una evaluación comparativa de dichos modelos.
+							</div>
+							<div class="preg">
+								<div>
+									<br> Las pregunta de investigación en torno a este trabajo es la siguiente:
+								</div>
+								<div class="pregunit" >
+									<ul>
+										<li class="animate__bounceInLeft">¿Con qué exactitud es posible reconocer
+											señas que son parte de la Lengua de Señas Mexicana a 
+											partir videos? </li>
+									</ul>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+
+					<div class="footer numero">
+						5
+					</div>
+				</section>
+
+
+
+				<!--OBJETIVOS-->
+				<section data-transition="slide">
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+
+					<div class="cont3">
+						<div class="cont3_tit">
+							<h6>Objetivos</h6>
+						</div>
+						<div class="cont3_info">
+							<div class="obj">
+								Para llevar a cabo el desarrollo de los modelos descritos se deben 
+								cumplir los siguientes objetivos particulares:
+							</div>
+							<div class="preg">
+								<div class="pregunit" >
+									<ul>
+										<li class="animate__fadeInLeft">Proponer un diccionario o corpus de señas con asesoría de expertos en LSM.</li>
+										<li class="animate__fadeInLeft">Recolectar un conjunto de videos de tal forma que sea útil para entrenar 
+										 modelos de aprendizaje profundo.</li>
+										<li class="animate__fadeInLeft">Proponer e implementar diversas arquitecturas de clasificación de 
+											secuencias espacio-temporales y entrenarlas con el conjunto de videos.</li>
+										<li class="animate__fadeInLeft">Validar estos modelos de reconocimiento con videos de señistas expertos.</li>
+									</ul>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+
+					<div class="footer numero">
+						6
+					</div>
+				</section>
+
+
+
+	
+
+
+
+				<!--Trabjo relacionado-->
+				<section data-transition="slide">
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="contenedor_1">
+						<div class="cont1_tit"><h6>Clasificación del trabajo relacionado</h6></div>
+						<div class="cont1_info">
+							Actualmente, las soluciones a la tarea de Sign Lanuage Recognition (SLR) 
+							se pueden dividir en cuatro grupos:
+							<div class="img2models animate__zoomIn">
+								<img data-src="img\trab_rel.png" alt="IMG2">
+							</div>
+						</div>
+					</div>
+					<div class="footer numero">
+						7
+					</div>
+				</section>
+
+				<!--trabajo relacionado 2-->
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					
+					<div class="cont3im">
+						<div class="cont3im_tit">
+						<h6>Trabajo relacionado</h6>
+						</div>
+						<div class="cont3im_text">
+							El objetivo de los modelos de clasificación es reconocer señas (que ya fueron realizadas) 
+							e inferir 
+							su significado.
+							<br> 
+							<br>
+							Actualmente, la mayor parte del trabajo en SLR usa técnicas de <b>aprendizaje profundo</b>.
+							<br>
+							<br>La mayor parte del trabajo realcionado en torno al SLR se enfoca a señas estáticas ya
+							que es suficiente una sola captura para reconocer la seña.
+						</div>
+						<div class="cont3im_im3 imagen2 animate__zoomIn">
+							<div class="imagen2">
+								<img data-src="img\signrecog_arch.png" alt="IMG2">
+							</div>
+							<div>
+								Tomada de Al-Quirishi. (2021)
+							</div>
+						</div>
+						<div class="cont3im_im1 imagen2 animate__zoomIn">
+							<div class="imagen2">
+								<img data-src="img\estaticas.jpg" alt="IMG2">
+							</div>
+							<div>
+								Dactilología tomada de Mancilla-Morales et al. (2019)
+							</div>
+						
+						</div>
+						<div class="cont3im_im2 imagen2 animate__zoomIn">
+							<video controls loop>
+								<source data-src="img\VIDEOS\EXPLOSION_11.mp4" type="video/mp4" loop="loop"/>
+							</video>
+							<div class="cont3im_subcap">
+								Ideograma, seña: EXPLOSIÓN
+							</div>
+						</div>
+					</div>
+
+					<div class="footer numero">
+						8
+					</div>
+				</section>
+
+
+
+
+				
+
+
+
+
+
+				<!--edo del arte lsm-->
+				<section data-transition="slide">
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="contenedor_1">
+						<div class="cont1_tit"><h6>Estado del arte de reconocimiento de LSM</h6></div>
+						<div class="cont1_info">
+							En la siguiente tabla se resume el trabajo más relevante del 
+							reconocimiento de LSM de la última década. 
+							<div class="sign2gloss animate__zoomIn">
+								<img data-src="img\lsm_trabrel.png" alt="IMG2">
+							</div>
+						</div>
+					</div>
+					<div class="footer numero">
+						9
+					</div>
+				</section>
+
+
+
+
+
+
+				<!--metodología-->
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="cont13">
+						<div class="cont13_tit"><h6>Metodología de trabajo</h6></div>
+						<div class="cont13_img animate__fadeIn">
+							<img data-src="img\metodologia.png" alt="Up arrow">
+						</div>
+					</div>
+					<div class="footer numero">
+						10
+					</div>
+				</section>
+
+
+
+				<!--ADQUISICION DATOS-->
+				<section>
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<br>
+					<h3>Adquisición de datos</h3>
+				</section>
+
+
+
+				
+
+				<section data-transition="slide">
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="dict">
+						<div class="dict_tit"><h6>1.1. Diccionario propuesto</h6></div>
+						<div class="dict_info">
+						Se propusieron <b>119 glosas</b>, todas ellas en contexto
+						<b>médico, de emergencias y frases cordiales</b>. Además, este 
+						diccionario se realizó consultando cada seña con expertos en 
+						LSM de la Asociación Regional de Sordos Ensenadenses (ARSE)
+						y una experta externa en LSM. Finalmente se usaron <b>100 glosas</b>.
+
+						</div>
+						<div class="dict_im1 animate__zoomIn">
+							<video controls loop>
+								<source data-src="img\VIDEOS\ESTOMAGO_0.mp4" type="video/mp4" loop="loop"/>
+							</video>
+							Seña: ESTÓMAGO (variante con dos manos)
+						</div>
+						<div class="dict_im2 animate__zoomIn">
+							<video controls loop>
+								<source data-src="img\VIDEOS\ESTOMAGO_11.mp4" type="video/mp4" loop="loop"/>
+							</video>
+							Seña: ESTÓMAGO (variante con una mano)
+						</div>
+					</div>
+					<div class="footer numero">
+						11
+					</div>
+				</section>
+
+
+
+
+
+				<!--PILOTO CAPTURA 1-->
+				<section data-transition="slide">
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					
+					<div class="cont2">
+						<div class="cont2_tit">
+						<h6>1.2. Prueba piloto / Protocolo de captura</h6>
+						</div>
+						<div class="cont2_text setup_img setup_text">
+							Una vez finalizada la prueba piloto, 
+							se realizaron las grabaciones con cada participante. La captura de señas consistió 
+							en los siguientes pasos:
+							<ol class="cont22_text">
+								<li class="animate__zoomInLeft">Se le explicó al participante la realización de las señas 
+									con la mano dominante y el uso de la mano de apoyo.</li>
+								<li class="animate__zoomInLeft">Se le pidió observar el video instructivo de la seña.</li>
+								<li class="animate__zoomInLeft">Se le pidió al participante imitar la seña realizada 
+									en el video instructivo</li>
+								<li class="animate__zoomInLeft">Se realizó la grabación de video a 30 cuadros 
+									por segundo (fps) de la seña a una velocidad lenta.</li>
+							</ol>
+						</div>
+						<div class="cont2_im1 imagen2 setup_img">
+							<video controls loop>
+								<source data-src="img\VIDEOS\PILOTO.mp4" type="video/mp4" loop="loop"/>
+							</video>
+							<div>
+								Prueba piloto (Seña: CITA MÉDICA)
+							</div>
+						
+						</div>
+						<div class="cont2_im2 setup">
+							<div>
+								<img data-src="img\set-up.jpg" alt="IMG2">
+							</div>
+								Set-up de captura.
+						</div>
+					</div>
+
+					<div class="footer numero">
+						12
+					</div>
+				</section>
+
+
+				<!--CAPTUURA DE SEÑAS-->
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+
+					<div class="cont5">
+						<div class="cont5_tit">
+							<h6>1.3. Reclutamiento de participantes</h6>
+						</div>
+
+						<div class="cont5_text">
+							La captura de señas se realizó con 10 participantes no expertos. 
+							Cada participante con características distintas entre sí, lo que ayuda 
+							a brindar mayor <b>variabilidad</b> al conjunto de datos.
+							<br>Cada uno de estos videos fue capturado en un set-up de grabación 
+							especial para ayudar al sistema de
+							reconocimiento de articulaciones.
+							
+							
+						</div>
+						<!--video1-->
+						<div class="cont5_video1">
+							<div>
+								<video controls loop>
+									<source data-src="img\VIDEOS\TEMBLOR_3.mp4" type="video/mp4" loop="loop"/>
+								</video>
+							</div>
+						</div>
+						<!--video2-->
+						<div class="cont5_video2">
+							<div>
+								<video controls loop>
+									<source data-src="img\VIDEOS\TEMBLOR_4.mp4" type="video/mp4" loop="loop"/>
+								</video>
+							</div>
+						</div>
+						<!--video3-->
+						<div class="cont5_video3">
+							<div>
+								<video controls loop>
+									<source data-src="img\VIDEOS\TEMBLOR_5.mp4" type="video/mp4" loop="loop"/>
+								</video>
+							</div>
+						</div>
+						<!--video4-->
+						<div class="cont5_video4">
+							<div>
+								<video controls loop>
+									<source data-src="img\VIDEOS\TEMBLOR_7.mp4" type="video/mp4" loop="loop"/>
+								</video>
+							</div>
+						</div>
+
+					</div>
+					<div class="footer numero">
+						13
+					</div>
+				</section>
+
+
+
+				</section>
+
+
+
+
+
+
+				<!--PREPROCESAMIENTO-->
+				<section>
+
+
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<br>
+					<h3>Pre-procesamiento</h3>
+				</section>
+
+
+
+				<!--preprocesamiento-->
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="cont7">
+						<div class="cont7_tit"><h6>Pre-procesamiento</h6></div>
+						<div class="cont7_text">
+							En la fase de captura de datos se obtuvieron <b>1,000 videos de señas</b>, 
+							cada uno de estos videos con 120 frames en promedio.
+							Después de capturar los videos de señas se realizaron los siguientes pasos:
+						</div>
+						<div class="cont7_img tabla animate__zoomIn">
+							<img data-src="img\preproc.png" alt="IMG2">
+						</div>
+					</div>
+					<div class="footer numero">
+						14
+					</div>
+				</section>
+
+
+
+
+				<!--OPENPOSE-->
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="cont14">
+						<div class="cont14_tit"><h6>2.1. Extracción del esqueleto con OpenPose</h6></div>
+						<div class="cont14_text">
+							Consiste en la extracción de puntos clave (keypoints) del cuerpo en cada frame para cada video de señas.
+							Mediante el sistema de OpenPose se estiman las coordenadas de las articulaciones del participante sobre
+							cada imagen que constituye un video. OpenPose obtiene <b>137 keypoints, 70 correspondientes al rostro, 21 para cada una de las manos y 25 para el resto
+							del cuerpo</b>. 
+						</div>
+						<div class="cont14_vid1 animate__zoomIn">
+							<video p controls loop>
+								<source data-src="img\VIDEOS\DESMAYAR.mp4" type="video/mp4" loop="loop"/>
+							</video>
+							<div>Seña: DESMAYAR</div>
+						</div>
+						<div class="cont14_vid2 animate__zoomIn">
+							<video controls loop>
+								<source data-src="img\VIDEOS\MEDICINA.mp4" type="video/mp4" loop="loop"/>
+							</video>
+							<div>Seña: MEDICINA</div>
+						</div>
+					</div>
+					<div class="footer numero">
+						15
+					</div>
+				</section>
+
+				<!--OPENPOSE-->
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="cont14">
+						<div class="cont14_tit"><h6>2.2. Selección de articulaciones</h6></div>
+						<div class="cont14_text">
+							En el diccionario se eligieron señas en las que los gestos faciales 
+							no son indispensables para identificar a la seña. Se eligieron las
+							articulaciones de los codos, hombros pecho, nariz, ojos, orejas 
+							y además las 21 articulaciones de cada una de las manos. 
+							En total se seleccionaron <b>41 articulaciones</b> de las 137 
+							disponibles. 
+						</div>
+						<div class="cont14_vid1 animate__zoomIn">
+							<video p controls loop>
+								<source data-src="img\VIDEOS\AMBULANCIA_11.mp4" type="video/mp4" loop="loop"/>
+							</video>
+							<div>Seña: AMBULANCIA</div>
+						</div>
+						<div class="cont14_vid2 animate__zoomIn">
+							<video controls loop>
+								<source data-src="img\VIDEOS\DOCTOR.mp4" type="video/mp4" loop="loop"/>
+							</video>
+							<div>Seña: DOCTOR</div>
+						</div>
+					</div>
+					<div class="footer numero">
+						16
+					</div>
+				</section>
+
+
+				
+
+				<!--preprocesamiento-->
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="cont7">
+						<div class="cont7_tit"><h6>2.3. Aumentación de datos</h6></div>
+						<div class="cont7_text">
+							Dado que el diccionario disponible contiene 100 señas y estas señas 
+							fueron realizadas por 10 participantes inexpertos, 
+							se tienen únicamente <b>10 muestras</b> por cada una de las 100 clases. 
+							Esta cifra no es suficiente para entrenar un modelo de aprendizaje 
+							profundo.
+							<br>En este trabajo se usan dos enfoques distintos para compensar esta 
+							falta de muestras de series de tiempo.
+						</div>
+						<div class="cont7_img tabla animate__zoomIn imgaug">
+							<img data-src="img\augmentation.png" alt="IMG2">
+						</div>
+					</div>
+					<div class="footer numero">
+						17
+					</div>
+				</section>
+
+
+
+				<!--MATH-->
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="contmath">
+						<div class="contmath_tit"><h6>2.3.1. Creación de videos usando re-muestreo (Sampling)</h6></div>
+						<div class="contmath_text">
+							Para compensar la cantidad limitada de videos grabados, se generaron <b>50 videos de 15 frames c/u</b> a partir de cada original.
+							Dado un video $S=(f_1, f_2, ..., f_l)$ con <b>$l$ frames</b>, se seleccionan aleatoriamente un número fijo de cuadros $(n=15)$. Primero se 
+							calcula la longitud promedio de espacios entre frames como $z = \lfloor \frac{l}{n-1} \rfloor$.  
+							Posteriormente extraemos una secuencia de frames con los índices de la siguiente secuencia 
+							\[\begin{equation}
+							Y=(y, y+z, y+2z,..., y+(n-1)z)
+							\end{equation} \]
+							donde $y= \lfloor \frac{l-z*(n-1)}{2} \rfloor$, a $Y$ se le conoce como la secuencia base. 
+							Finalmente se calcula una secuencia de números aleatorios $R=(r_1,r_2,...,r_n)$ con valores de $[1,z]$. 
+							Esta secuencia aleatoria se suma a la secuancia base para generar una secuencia nueva:
+							\[\begin{equation}
+							Y_{new}=(Y_1+R_1, Y_2+R_2,..., Y_n+R_n)
+							\end{equation} \]
+						</div>
+						<div class="contmath_img img8 animate__zoomIn">
+							<img data-src="img\frames.png" alt="IMG2">
+						</div>
+					</div>
+					<div class="footer numero">
+						18
+					</div>
+				</section>
+
+
+
+
+
+
+				<!--MATH-->
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="contmath">
+						<div class="contmath_tit"><h6>2.3.2. Modificaciones de los keypoints (Hand-Switch)</h6></div>
+						<div class="hand_text">
+							Este enfoque consiste en realizar la aumentación de datos a nivel keypoint 
+							o articulación. En este trabajo se aumentó el tamaño 
+							de las falanges de los dedos hasta un 10% y se removieron articulaciones de manera aleatoria.
+							<br>La longitud de los dedos varía de persona en persona. 
+							Por lo tanto, el reducir o aumentar la longitud del dedo de forma aleatoria en un 
+							solo <it>"video"</it> simula que se grabaron videos.
+							<br>Además, remover articulaciones disminuye la dependencia del aprendizaje en OpenPose. 
+						</div>
+						<div class="contmath_img imghand animate__zoomIn">
+							<img data-src="img\hand.png" alt="IMG2">
+						</div>
+					</div>
+					<div class="footer numero">
+						19
+					</div>
+				</section>
+
+
+
+
+				<!--NORMALIZACION-->
+				<section>
+				<!--data-visibility="hidden"-->
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="contnorm">
+						<div class="contnorm_tit"><h6>2.4. Normalización de los frames</h6></div>
+						<div class="contnorm_text">
+							Después de la extracción de articulaciones y la generación de sintéticos se realizó 
+							la normalización de cada frame usando la media y la 
+							desviación estándar del vector de características. 
+							Recordando que la normalización es necesaria para reducir la varianza de los datos. 
+							Sean:
+							\[\begin{equation}
+							V_x=(v^x_1, v^x_2,..., v^x_{k}) \quad \text{y} \qquad V_y=(v^y_1, v^y_2,..., v^y_{k})
+							\end{equation} \]
+							las coordenadas $x$ e $y$ de cada una de las articulaciones $(1,k)$ para un solo frame. Cada elemento 
+							se normaliza respecto al valor de $\mu$ y $\sigma$ de dicha coordenada (x o y) en ese frame.							
+							\[\begin{aligned}
+							\dot{V_x} &amp; = \frac{V_x - \overline{V_x}}{\sigma(V_x)} \\
+							\dot{V_y} &amp; = \frac{V_y - \overline{V_y}}{\sigma(V_y)} 
+							\end{aligned} \]
+							
+						</div>
+						<div class="contnorm_img imgnorm animate__zoomIn">
+							<img data-src="img\norm.png" alt="IMG2">
+						</div>
+					</div>
+					<div class="footer numero">
+						20
+					</div>
+				</section>
+
+
+
+				</section>
+
+
+
+
+
+
+				<!--Entrenamiento de los modelos-->
+				<section>
+
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<br>
+					<h3>Modelos propuestos</h3>
+				</section>
+
+
+				<!--clasif señas-->
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="contenedor_1">
+						<div class="cont1_tit"><h6>3. Clasificación de señas</h6></div>
+						<div class="cont1_info">
+							Recordemos que nuestro conjunto de datos contiene 100 señas distintas, 
+							i.e., <b>100 clases</b>. Todos los modelos propuestos tendrán una 
+							última capa de decisión con 100 neuronas. 
+							Las secuencias de entrada para estos modelos discriminativos serán 
+							secuencias espaciales  y temporales.
+							<div class="img2models imgclasif animate__zoomIn">
+								<img data-src="img\modelo_gral.png" alt="IMG2">
+							</div>
+						</div>
+					</div>
+					<div class="footer numero">
+						21
+					</div>
+				</section>
+
+
+				<!--SERIES DE TIEMPO-->
+				<section data-visibility="hidden">
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="cont14a">
+						<div class="cont14a_tit"><h6>3.1. Clasificación de series de tiempo</h6></div>
+						<div class="cont14a_text">
+							Podemos considerar estas secuencias de coordenadas espaciales $(x, y)$ como series de tiempo multivariadas. 
+							Las M dimensiones corresponden a cada uno de los puntos clave del esqueleto humano calculado a partir de OpenPose. 
+							De acuerdo con Fawaz. et al (2019), la clasificación de este tipo de secuencias espacio temporales puede ser tratada 
+							como un problema de aprendizaje de máquina teniendo suficientes datos etiquetados, i.e. ejemplos asignados. 
+						</div>
+						<div class="cont14a_vid1 animate__zoomIn">
+							<img data-src="img\series_tiempo.png" alt="Up arrow">
+						</div>
+					</div>
+					<div class="footer numero">
+						22
+					</div>
+				</section>
+
+
+				
+
+
+				<!--MODELOS EDO ARTE-->
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="cont7">
+						<div class="cont7_tit"><h6>3.2. Modelos propuestos</h6></div>
+						<div class="cont7_text">
+							Los modelos propuestos para la clasificación de señas pertenecientes a LSM son:
+						</div>
+						<div class="cont7_img tabla animate__zoomIn">
+							<img data-src="img\modelos.png" alt="IMG2">
+						</div>
+					</div>
+					<div class="footer numero">
+						22
+					</div>
+				</section>
+
+
+
+
+				<!--MODELO PROPUESTO-->
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="cont10">
+						<div class="cont10_tit"><h6>3.3. Modelo RNN (LSTM)</h6></div>
+						<div class="cont10_text">
+							El modelo de Red Neuronal Recurrente (RNN) es particularmente útil para los problemas de series de tiempo ya 
+							que, a diferencia de otros modelos de aprendizaje profundo, las celdas recurrentes consideran la información histórica. Las celdas tipo Long Short-Term Memory
+							(LSTM) tienen un mejor rendimiento y menor sobre-ajuste en los resultados.
+						</div>
+					
+						<div class="cont10_img1 imgcont10">
+							<!--
+								<div>
+								\[\begin{aligned}
+								h_t &amp; = \sigma(W_{xh}^Tx_t+W_{hh}^Th_{t-1}+b_h) \\
+								y_t &amp; = \sigma(W_o^Th_t+b_o)
+								\end{aligned} \]
+							</div>
+							-->
+							
+							<img data-src="img\rnn.png" alt="IMG2">
+						</div>
+						<div class="cont10_img2 img10 animate__zoomIn">
+							<img data-src="img\lstm_model.png" alt="IMG2">
+						</div>
+					</div>
+					<div class="footer numero">
+						23
+					</div>
+				</section>
+
+
+
+
+
+
+				<!--MODELO PROPUESTO-->
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="cont10">
+						<div class="cont10_tit"><h6>3.4. Modelo CNN LSTM</h6></div>
+						<div class="cont10_text">
+							De acuerdo con Sainath et al. (2015), la combinación de capas 
+							convolucionales (CNN) y celdas LSTM hace que el modelo sea tanto espacial 
+							como temporalmente profundo. 							
+						</div>
+						<div class="cont10_img1">
+							<img data-src="img\cnnlstm.png" alt="IMG2">
+						</div>
+						<div class="cont10_img2 img10 animate__zoomIn">
+							<img data-src="img\cnnlstm_model.png" alt="IMG2">
+						</div>
+					</div>
+					<div class="footer numero">
+						24
+					</div>
+				</section>
+
+
+
+
+
+
+				<!--MODELO PROPUESTO-->
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="cont10">
+						<div class="cont10_tit"><h6>3.5. Modelo ResNet</h6></div>
+						<div class="cont10_text">
+							La arquitectura ResNet propuesta por Wang et al. (2017b), 
+							tiene la particularidad de conectar directamente componentes 
+							residuales para evitar el problema del desvanecimiento del gradiente.
+							Esta arquitectura fue propuesta originalmente para el problema de clasificación 
+							de imágenes, sin embargo de acuerdo con Fawaz et al. (2019) da resultados equiparables al 
+							algoritmo HIVE-COTE (estado del arte) con un tiempo de entrenamiento más 
+							eficiente.
+						</div>
+						<div class="cont10_img1">
+							<img data-src="img\resnet.png" alt="IMG2">
+							<div>Tomada de Fawaz et. al (2019)</div>
+						</div>
+						<div class="cont10_img2 img10 animate__zoomIn">
+							<img data-src="img\resnet_model.png" alt="IMG2">
+						</div>
+					</div>
+					<div class="footer numero">
+						25
+					</div>
+				</section>
+
+
+				<!--entrenamiento validaion prueba-->
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="contenedor_1">
+						<div class="cont1_tit"><h6>3.6. Conjuntos de entrenamiento, validación y prueba</h6></div>
+						<div class="cont1_info">
+							En total se cuentan <b>1200 videos originales</b> para las 100 señas. 
+							A cada video de los participantes inexpertos se le realizó 
+							data augmentation usando los dos enfoques usados (Sampling y 
+							Hand-Switch). En cada uno de estos subconjuntos de datos se generaron
+							50 secuencias <it>”sintéticas”</it> a partir de cada video original,
+							cada secuencia tiene un tamaño fijo de 15 frames. 
+							<br>Por lo tanto, cada subconjunto de datos cuenta con 500 series de 
+							tiempo para cada clase (<b>50,000 series de tiempo en total</b>).
+							<div class="img2models imgclasif animate__zoomIn">
+								<img data-src="img\hov.png" alt="IMG2">
+							</div>
+						</div>
+					</div>
+					<div class="footer numero">
+						26
+					</div>
+				</section>
+								
+
+
+				</section>
+				
+
+				<!--Resultados-->
+				<section>
+
+
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<br>
+					<h3>Resultados</h3>
+				</section>
+
+
+
+				<!--BASELINE-->
+				<section data-visibility="hidden">
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="cont11">
+						<div class="cont11_tit"><h6>4. Modelo Base: KNN(DTW)</h6></div>
+						<div class="cont11_img1">
+							<script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+							<script src="js/KNN_CM_1.js"></script>
+							<div id="3fdbd839-4cc0-4a5c-ba82-c149d2b7ae01" class="plotly-graph-div" style="height:600px; width:600px;"></div>
+							<script src="js/KNN_CM_2.js"></script>  
+						</div>
+						<div class="cont11_text">
+							Este es el modelo de aprendizaje de máquina clásico por su explicabilidad, su sencillez y rendimiento. 
+							En este trabajo será el modelo base con el que compararemos como se comportan los siguientes modelos de 
+							aprendizaje profundo.
+						</div>
+						<div class="cont11_img2 img11">
+							<img data-src="img\LSTM_LC.png" alt="IMG2">
+						</div>
+					</div>
+					<div class="footer numero">
+						2
+					</div>
+				</section>
+
+
+
+
+
+
+
+
+
+
+
+				<!--RES-LSTM-->
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="res_grid">
+						<div class="resgrid_tit"><h6>4.1. Resultados para el modelo LSTM (acc=0.67)</h6>
+						</div>
+						<div class="A">
+							<script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+							<script src="js/LSTM_CM_1.js"></script>
+							<div id="f7104291-4c82-44f4-b361-edc3bc73e05b" class="plotly-graph-div" style="height:600px; width:600px;"></div>
+							<script src="js/LSTM_CM_2.js"></script>  
+						</div>
+						<div class="B">
+							
+							<div>
+								<video controls loop>
+									<source data-src="img\VIDEOS\GUSTAR_2.mp4" type="video/mp4" loop="loop"/>
+								</video>
+							</div>
+							<div class="subtitulo"><p>Seña: GUSTAR</p></div>
+						</div>
+						<div class="C">
+							
+							<div >
+								<video controls loop>
+									<source data-src="img\VIDEOS\PALPITACION_00.mp4" type="video/mp4" loop="loop"/>
+								</video>
+							</div>
+							<div class="subtitulo"><p>Seña: PALPITACIÓN</p></div>
+						</div>
+					</div>
+					<div class="footer numero">
+						27
+					</div>
+				</section>
+
+
+
+
+
+
+
+				<!--RES CNN LSTM-->
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="cont11">
+						<div class="cont11_tit"><h6>4.2. Resultados para el modelo CNN LSTM (acc=0.76)</h6></div>
+						<div class="cont11_img1">
+							<script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+							<script src="js/CNN-LSTM_CM_1.js"></script>
+							<div id="556f215b-7af8-46c4-8d92-c3495e7c0c9c" class="plotly-graph-div" style="height:600px; width:600px;"></div>
+        					<script src="js/CNN-LSTM_CM_2.js"></script>   
+						</div>
+						
+						<div class="cont11_text">
+							Este modelo tiene métricas de evaluación superiores que el KNN (DTW) y al RNN (LSTM) pero también presenta mayor sobreajuste.
+						</div>
+						<div class="cont11_img2 img11">
+							<img data-src="img\CNN_LSTM_FULL_LC.png" alt="IMG2">
+						</div>
+					</div>
+					<div class="footer numero">
+						28
+					</div>
+				</section>
+
+
+
+
+
+				<!--RES RESNET-->
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="cont11">
+						<div class="cont11_tit"><h6>4.3. Resultados para el modelo ResNet (acc=0.81)</h6></div>
+						<div class="cont11_img1">
+							<script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+							<script src="js/RESNET_CM_1.js"></script>
+							<div id="11950abe-8a21-4d14-a64d-1a3803ddca7c" class="plotly-graph-div" style="height:600px; width:600px;"></div>
+        					<script src="js/RESNET_CM_2.js"></script>   
+						</div>
+						
+						<div class="cont11_text">
+							Como era de esperarse, este modelo tiene métricas de evaluación superiores que los anteriores, 
+							se observa una matriz de confusión mucho más acertada.
+						</div>
+						<div class="cont11_img2 img11">
+							<img data-src="img\RESNET_FULL_LC.png" alt="IMG2">
+						</div>
+					</div>
+					<div class="footer numero">
+						29
+					</div>
+				</section>
+
+
+
+				<!-- GRID VIDEOS -->
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="contvideos">
+						<div class="contvideos_tit"><h6>4.4. Más Confusiones</h6>
+						</div>
+						<div class="contvideos_A"> 
+							<video controls loop>
+								<source data-src="img\VIDEOS\ESPANOL_5.mp4" type="video/mp4" loop="loop"/>
+							</video>
+							<div class="subtitulo"><p>Seña: Español</p></div>
+						</div>
+						<div class="contvideos_B">		
+							<div>
+								<video controls loop>
+									<source data-src="img\VIDEOS\GUSTAR_10.mp4" type="video/mp4" loop="loop"/>
+								</video>
+							</div>
+							<div class="subtitulo"><p>Seña: Gustar</p></div>
+						</div>
+						<div class="contvideos_C">
+							<div >
+								<video controls loop>
+									<source data-src="img\VIDEOS\CABEZA_7.mp4" type="video/mp4" loop="loop"/>
+								</video>
+							</div>
+							<div class="subtitulo"><p>Seña: Cabeza</p></div>
+						</div>
+						<div class="contvideos_D">
+							
+							<div >
+								<video controls loop>
+									<source data-src="img\VIDEOS\CASA_6.mp4" type="video/mp4" loop="loop"/>
+								</video>
+							</div>
+							<div class="subtitulo"><p>Seña: Casa</p></div>
+						</div>
+					</div>
+					<div class="footer numero">
+						30
+					</div>
+				</section>
+
+
+
+				<!--COMPARACION MODELOS-->
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="cont7">
+						<div class="cont7_tit"><h6>4.5. Comparación entre modelos</h6></div>
+						<div class="cont7_text">
+							A continuación se muestran los boxplots de F1-Score entre los 4 modelos y los dos conjuntos de datos.
+						</div>
+						<div class="cont7_img tabla">
+							<img data-src="img\F-SCORE.png" alt="IMG2">
+						</div>
+					</div>
+					<div class="footer numero">
+						31
+					</div>
+				</section>
+
+
+
+
+
+
+				<!--  TABLA COMPARATIVA  -->
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="cont7">
+						<div class="cont7_tit"><h6>4.6. Tabla Comparativa</h6></div>
+						<div class="cont7_text">
+							A continuación se muestra una tabla de métricas de rendimiento para comparar estos modelos 
+							con el conjunto de Sampling.
+						</div>
+						<div class="cont7_img tabla">
+							<img data-src="img\tabla.png" alt="IMG2">
+						</div>
+					</div>
+					<div class="footer numero">
+						32
+					</div>
+				</section>
+
+
+
+				</section>
+
+
+
+
+				
+
+				<!--Conclusiones-->
+				<section>
+
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<br>
+					<h3>Conclusiones</h3>
+				</section>
+				<!--CONCLUSIONES-->
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+
+					<div class="cont3a">
+						<div class="cont3a_tit">
+							<h6>Conclusiones</h6>
+						</div>
+						<div class="cont3a_info conc">							
+							<ul>
+								<li class="animate__fadeInLeft">
+									Dando respuesta a la pregunta de investigación (¿Con qué exactitud el mejor modelo de
+									reconocimiento clasifica señas de la LSM?) El modelo ResNet presentó la exactitud más 
+									alta de 0.81
+								</li>
+								<li class="animate__fadeInLeft">
+									A pesar de que el modelo recurrente entrenó en menor tiempo, el modelo ResNet presdenta tiempos
+									de entrenamiento omparables con mejor métricas de rendimiento generales. 
+								</li>
+								<li class="animate__fadeInLeft">
+									Muchos modelos entrenados comparten las mismas confusiones debido a que varias señas comparten la
+									misma configuración de las manos y/o trayectorias similares.
+								</li>
+								<li class="animate__fadeInLeft">
+									El conjunto de datos usando el esquema de data augmentation por re-muestreo presenta mejores 
+									resultados en todos los modelos que el conjunto de datos con alteraciones en las articulaciones.
+									Esto probablemente debido a que dichas alteraciones fueron muy sutiles (del orden del 10%).
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="footer numero">
+						33
+					</div>
+				</section>
+
+
+
+				<!--TRABAJO RESTANTE-->
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+
+					<div class="cont3a">
+						<div class="cont3a_tit">
+							<h6>Trabajo a futuro</h6>
+						</div>
+						<div class="cont3a_info conc">	
+							<ul>
+								<li class="animate__zoomIn">Aumentar el diccionario de ideogramas de LSM. De esta forma se podrá realizar la clasificacion de
+									más señas pertenecientes a la LSM con el mismo contexto de emergencias u otro distinto.
+									</li>
+								<li class="animate__zoomIn">Aumentar las repeticiones de la seña para aumentar el número de ejemplos por clase. 
+									Enriquecer el registro de videos existente con videos de participantes nuevos ayudará a 
+									robustecer los modelos de aprendizaje profundo debido a que aumentará la variabilidad 
+									intra-clase del conjunto de datos.</li>
+								<li class="animate__zoomIn">Probar diversas arquitecturas con transferencia de aprendizaje para obtener 
+									exactitudes más altas
+									en la clasificación.</li>
+								<li class="animate__zoomIn">Ampliar el trabajo de tesis usando modelos de traducción continuos de frases en LSM a español
+									usando el diccionario propuesto.</li>
+								<li class="animate__zoomIn">Realizar la traducción de texto en español a LSM. El siguiente paso en
+									los flujos de traducción sería el de realizar la traducción a Lengua de Señas 
+									mediante avatars o
+									generación de keypoints. </li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="footer numero">
+						34
+					</div>
+				</section>
+
+				</section>
+
+
+				<!--FIN-->
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<br>
+					<h3>Gracias</h3>
+				</section>
+
+
+				<!--AGRADECIMIENTOS-->
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+
+					<div class="agr">
+						<div class="agr_tit">
+							<h6>Agradecimientos</h6>
+						</div>
+						<div class="agr_info">	
+							<ul>
+								<li class="animate__fadeInLeft">Al Centro de Investigación Científica y de Educación Superior
+									 de Ensenada Baja California por brindarme la oportunidad 
+									 de realizar mi sueño.</li>
+								<li class="animate__fadeInLeft">Al CONACyT
+									por brindarme el apoyo económico para realizar
+									mis estudios de maestría</li>
+								<li class="animate__fadeInLeft">A mi director de tesis Irvin Hussein López Nava 
+									por toda su atención y aportes a este trabajo.</li>
+								<li class="animate__fadeInLeft">A los participantes voluntarios de la adquisición de datos, 
+									Bere, Dann, Yulith, Hector, Sarid, Juan Carlos, Esteban, 
+									Ricardo, Joan, Emilio y Luis. 
+									Este trabajo no pudo haber sido posible sin ustedes</li>
+								<li class="animate__fadeInLeft">A Sonia Esther Rico Meneses y ARSE por su ayuda con la
+									propuesta del diccionario y los videos de intérprete.</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="footer numero">
+						35
+					</div>
+				</section>
+
+
+
+
+
+
+
+
+
+
+
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+
+
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<!--  LEAVE ONE OUT  -->
+				<section data-visibility="hidden">
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="cont14c">
+						<div class="cont14c_tit"><h6>Conjuntos de Entrenamiento y Prueba</h6></div>
+						<div class="cont14c_text">
+							Se utilizó el esquema de validación Leave One Out (LOO) para determinar el conjunto de prueba sobre el cuál presentar los 
+							resultados de las matrices de confusión. Este esquema se aplico sobre todos los modelos tomando a cada participante 
+							$(P_1, P_2, ..., P_{10})$ como diferentes elementos del conjunto de datos.
+						</div>
+						<div class="cont14c_vid1">
+							<img data-src="img\LOO.png" alt="IMG2">
+						</div>
+						<div class="cont14c_vid2">
+							<img data-src="img\LSTM_LC.png" alt="IMG2">
+						</div>
+					</div>
+					<div class="footer numero">
+						17
+					</div>
+				</section>
+
+
+
+
+				
+
+
+
+
+
+				
+
+
+
+
+
+				<!--  LSTM CM 
+
+
+								<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="cont2a">
+						<div class="cont2a_tit"><h6>Características de los ideogramas</h6></div>
+						<div class="cont2a_text">
+							Los ideogramas tienen las siguientes características:
+							<ul>
+								<li><b>Queirema.</b> Se refiere a la colocación y forma de la mano al realizar la seña.</li>
+								<li><b>Toponema.</b> Se refiere a la posición de la mano en el marco del cuerpo donde se ejecutará la seña.</li>
+								<li><b>Kinema.</b> Se refiere al movimiento y trayectoria que realiza la mano para interpretar la seña.</li>
+							</ul>
+						</div>
+						<div class="cont2a_seña señad">
+							<img data-src="img\señad.png" alt="IMG2">
+							<div>Queirema</div>
+						</div>
+						<div class="cont2a_im1 video2">
+							<video controls loop>
+								<source data-src="img\VIDEOS\DIA_2.mp4" type="video/mp4" loop="loop"/>
+							</video>
+							<div>
+								Seña: Día
+							</div>
+						</div>
+						<div class="cont2a_im2 video2">
+							<video controls loop>
+								<source data-src="img\VIDEOS\DIABETES_6.mp4" type="video/mp4" loop="loop"/>
+							</video>
+							<div>
+								Seña: Diabetes
+							</div>
+						</div>
+					</div>
+					<div class="footer numero">
+						3
+					</div>
+				</section>
+
+
+
+
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="contplotly">
+						<div class="contplotly_tit"><h6>Titulo</h6></div>
+						<div class="contplotly_img">
+							<script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+							<script src="js/LSTM_CM_1.js"></script>
+							<div id="f7104291-4c82-44f4-b361-edc3bc73e05b" class="plotly-graph-div" style="height:600px; width:600px;"></div>
+							<script src="js/LSTM_CM_2.js"></script>  
+						</div>
+					</div>
+					<div class="footer numero">
+						1
+					</div>
+				</section>
+
+				<div class="cont11_img1">
+							<script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+							<script src="js/LSTM_CM_1.js"></script>
+							<div id="f7104291-4c82-44f4-b361-edc3bc73e05b" class="plotly-graph-div" style="height:600px; width:600px;"></div>
+							<script src="js/LSTM_CM_2.js"></script>  
+						</div>
+
+
+			
+				<section>
+					<div class"reveal> 
+						<div class="wrap">
+							<a href="#/2">
+								<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+							</a>
+						</div>
+					</div>
+					<div class="cont9">
+						<div class="cont9_tit"><h6>Titulo</h6></div>
+						<div class="cont9_col1">
+							<ul>
+								<li>Lorem Ipsum</li>
+								<li>Lorem Ipsum</li>
+							</ul>
+						</div>
+						<div class="cont9_col2">
+							<ul>
+								<li>Lorem Ipsum</li>
+								<li>Lorem Ipsum</li>
+							</ul>
+						</div>
+					</div>
+					<div class="footer numero">
+						1
+					</div>
+				</section>
+
+
+
+								<section>
+									<div class"reveal> 
+										<div class="wrap">
+											<a href="#/2">
+												<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+											</a>
+										</div>
+									</div>
+									<div class="cont4">
+										<div class="cont4_tit">
+											<h6>2. Pre-procesamiento</h6>
+										</div>
+										<div class="cont4_celltext1 textjustify"> 
+											Despúes de capturar los videos de señas se realizaron los siguientes pasos:
+											<ul>
+												<li>Se extrajo el esqueleto por cada frame de video mediante OpenPose</li>
+												<li>Se generaron videos "nuevos" remuestreando los videos completos a 15 cuadros cada uno para compensar la falta de datos.</li>
+												<li>Se normalizó cada cuadro usando la media de posición y la desviación estándar.</li>
+											</ul>
+										</div>
+										<div class="cont4_cellimg2 imagen6">
+											<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+										</div>
+										<div class="cont4_celltext3 imagen6">
+											<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+										</div>
+										<div class="cont4_cellimg4 imagen6">
+											<img data-src="img\Logo_cicese.jpg" alt="Up arrow">
+										</div>
+									</div>
+				
+									<div class="footer numero">
+										1
+									</div>
+								</section>
+					-->
+
+
+				
+			</div>
+		</div>
+
+		<script type="text/javascript" src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ],
+				width: 1280,
+      			height: 720,
+			  	autoPlayMedia: true						
+			});
+		</script>
+		<script type="module">
+			// This will need a server
+			import Appearance from './plugin/appearance/appearance.esm.js';
+			Reveal.initialize({
+				// ...
+				appearance: {
+					hideagain: true,
+					delay: 800,
+					appearevent: 'slidetransitionend',
+					autoappear: false,
+					autoelements: false,
+					csspath: '',
+					animatecsspath: {
+					link : 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css',
+					compat : 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.css',
+					},
+					compatibility: false,
+					compatibilitybaseclass: 'animated'
+				},
+				plugins: [ Appearance ]
+			});
+		</script>
+	</body>
+</html>
