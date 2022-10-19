@@ -136,7 +136,7 @@ p{
   display: inline;
   text-align: justify;
   text-justify: auto;
-  font-size: 25px;
+  font-size: 28px;
   color: var(--primario);
 
 }
@@ -196,7 +196,7 @@ p{
 
 
 .imgtrad{
-  width: 700px;
+  width: 800px;
   font-size: 15px;
   margin: auto auto auto auto;
   padding-top: 0em;
@@ -258,7 +258,7 @@ p{
   height: 100vh;
   max-width: 100%;
   grid-template-rows: 1fr 2fr 2fr 1fr;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 3fr 2fr;
 }
 
 .cont2_retos {
@@ -333,7 +333,9 @@ p{
 .imagen2{
   width:400px;
   margin: auto;
+  margin-top: 0;
   padding: auto;
+  padding-top: 0;
 }
 
 .setup{
@@ -375,8 +377,9 @@ p{
   grid-column: 1;
   font-size: 30px;
   /*background-color: aquamarine;*/
-  margin: 0.8em 1em 1em 1em;
+  margin: 0.8em 0.1em 1em 1em;
   padding: 1em;
+  padding-right: 0em;
   display: inline;
   text-align: justify;;
   text-justify: auto;
@@ -648,7 +651,7 @@ p{
 }
 
 .conc{
-  font-size: 25px;
+  font-size: 23px;
 }
 
 /*AGRADECIMIENTOS*/
@@ -780,9 +783,9 @@ p{
 .cont5_text{
   grid-row: 2 / span 3;
   grid-column: 1;
-  font-size: 28px;
-  margin: 0 1em 1em 1em;
-  padding: 0;
+  font-size: 30px;
+  margin: 1.5em 1.5em 1em 1em;
+  padding: auto;
   display: inline;
   text-align: justify;
   text-justify: auto;
@@ -842,7 +845,7 @@ p{
 display: grid;
 height: 100vh;
 max-width: 100%;
-grid-template-rows: 1fr 1fr 1fr 1fr;
+grid-template-rows: 1fr 1fr 2fr 1fr;
 }
 
 .cont7_tit{
@@ -958,11 +961,53 @@ grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 
 
+
+
+.contmath_hand {
+  display: grid;
+  height: 100vh;
+  max-width: 100%;
+  grid-template-rows: 1fr 5fr 1fr;
+  grid-template-columns: 2fr 1fr;
+}
+.contmath_hand_tit{
+  grid-row: 1;
+  grid-column: 1 / span 2;
+  display: inline;
+  text-align: left;
+  padding: 0.1em 0 0 1em;
+  margin: 0em;
+}
+.contmath_hand_text{
+  grid-row: 2;
+  grid-column: 1;
+  font-size: 28px;
+  margin: 0 2em 0 2em;
+  padding: 0;
+  display: inline;
+  text-align: justify;
+  text-justify: auto;
+  color: var(--primario);
+}
+
+.contmath_hand_img{
+  grid-row: 2;
+  grid-column: 2;
+  font-size: 20px;
+  margin: 0em 1em 0 1em;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primario);
+}
+
+
 .hand_text{
   grid-row: 2;
   grid-column: 1;
-  font-size: 25px;
-  margin: 0 3em 0 3em;
+  font-size: 28px;
+  margin: 1.5em 3em 0 3em;
   padding: 0;
   display: inline;
   text-align: justify;
@@ -976,6 +1021,8 @@ grid-template-rows: 1fr 1fr 1fr 1fr;
   margin: 0 auto 5em auto;
   padding: 0 auto auto auto;
 }
+
+
 
 /*MATH NORMAL*/
 .contnorm {
@@ -1441,7 +1488,7 @@ grid-template-rows: 1fr 1fr 1fr 1fr;
   justify-content: top;
   margin: 0 0 0 0px;
   padding-bottom: 2.6px;
-
+  padding-left: 0;
 }
 
 /*CONTENEDOR VID*/
@@ -1509,4 +1556,9 @@ grid-template-rows: 1fr 1fr 1fr 1fr;
 
 .mot3{
   font-size: 28px;
+}
+
+.mot4{
+  text-align: center;
+  font-size: 15px;
 }
