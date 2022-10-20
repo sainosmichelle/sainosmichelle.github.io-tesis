@@ -98,6 +98,8 @@
     }
   },
   "dependencies": {
-    "reveal.js-appearance": "^1.1.2"
+    "reveal.js-appearance": "^1.1.2",
+    "reveal.js-notes-pointer": "^0.1.4",
+    "reveal.js-pointer": "^0.1.4"
   }
 }
